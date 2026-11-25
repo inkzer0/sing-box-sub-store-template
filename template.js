@@ -34,16 +34,14 @@ let endpoints = []
 let data = {}
 if (url) {
   log(`读取远程订阅`)
-  name = name || 'remote-subscription'
   data = await produceArtifact({
-    name,
-    type,
+    type: 'subscription',
     platform: 'sing-box',
     produceOpts: {
       'include-unsupported-proxy': includeUnsupportedProxy,
     },
     subscription: {
-      name,
+      name: name || 'remote-subscription',
       url,
       source: 'remote',
     },
